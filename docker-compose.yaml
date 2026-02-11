@@ -1,5 +1,5 @@
 services:
-  EGCPService-db:
+  egcp-service-db:
     image: postgres:latest
     container_name: egcp-service-db
     ports:
@@ -18,7 +18,7 @@ services:
       timeout: 5s
       retries: 20
 
-  EGCPService:
+  egcp-service:
     build:
       context: .
       dockerfile: Dockerfile
@@ -27,19 +27,34 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://EGCPService-db:5432/db
+      SPRING_DATASOURCE_URL: jdbc:postgresql://egcp-service-db:5432/db
       SPRING_DATASOURCE_USERNAME: ${db_username}
       SPRING_DATASOURCE_PASSWORD: ${db_password}
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_ACTIVEMQ_BROKER_URL: tcp://activemq:61616
+      SPRING_ACTIVEMQ_IN_MEMORY: "false"
+
+      JMS_URL: test.queue
+
     depends_on:
-      EGCPService-db:
+      egcp-service-db:
         condition: service_healthy
+      activemq:
+        condition: service_started
+    networks:
+      - internal
+
+  activemq:
+    image: symptoma/activemq:latest
+    ports:
+      - "61616:61616"
+      - "8161:8161"
     networks:
       - internal
 
 volumes:
-  EGCPService-db-volumes:
+  egcp-service-db-volumes:
 
 networks:
   internal:

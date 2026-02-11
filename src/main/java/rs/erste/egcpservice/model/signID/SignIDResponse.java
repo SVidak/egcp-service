@@ -8,7 +8,7 @@ public class SignIDResponse {
 
     private String authorizationType;
     private List<List<String>> scenarios;
-    private List<String> signIds;
+    private List<String> phones;
     private SignInfo signInfo;
     private List<String> flags;
 
@@ -23,7 +23,7 @@ public class SignIDResponse {
     public SignIDResponse(String authorizationType, List<List<String>> scenarios, List<String> signIds, SignInfo signInfo, List<String> flags) {
         this.authorizationType = authorizationType;
         this.scenarios = scenarios;
-        this.signIds = signIds;
+        this.phones = signIds;
         this.signInfo = signInfo;
         this.flags = flags;
     }
@@ -44,12 +44,12 @@ public class SignIDResponse {
         this.scenarios = scenarios;
     }
 
-    public List<String> getSignIds() {
-        return signIds;
+    public List<String> getPhones() {
+        return phones;
     }
 
-    public void setSignIds(List<String> signIds) {
-        this.signIds = signIds;
+    public void setPhones(List<String> phones) {
+        this.phones = phones;
     }
 
     public SignInfo getSignInfo() {

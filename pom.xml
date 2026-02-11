@@ -57,6 +57,35 @@
         </dependency>
 
 
+        <!-- enables the `jms:` endpoint -->
+        <dependency>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-jms-starter</artifactId>
+            <version>4.17.0</version>
+        </dependency>
+
+        <!-- OPTIONAL (recommended for ActiveMQ): enables `activemq:` component and ActiveMQ conveniences -->
+        <dependency>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-activemq-starter</artifactId>
+            <version>4.17.0</version>
+        </dependency>
+
+
+        <!-- jackson unmarshal -->
+        <dependency>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-jackson-starter</artifactId>
+            <version>4.17.0</version>
+        </dependency>
+
+        <!-- active mq -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -88,7 +117,8 @@
             <artifactId>spring-boot-starter-webmvc-test</artifactId>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+
+</dependencies>
 
     <build>
         <plugins>
