@@ -1,6 +1,8 @@
 package rs.erste.egcpservice.model.egcp;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class EGCPEvent {
@@ -10,8 +12,13 @@ public class EGCPEvent {
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
 
+    @NotBlank
     private String apiVersion;
+
+    @NotBlank
     private String cardID;
+
+    @NotNull
     private Long customerId;
 
     @Embedded

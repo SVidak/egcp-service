@@ -162,6 +162,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Bean Validation support for: to("bean-validator:...") and BeanValidationException -->
+        <dependency>
+            <groupId>org.apache.camel.springboot</groupId>
+            <artifactId>camel-bean-validator-starter</artifactId>
+            <version>4.17.0</version>
+        </dependency>
 
 </dependencies>
 
